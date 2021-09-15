@@ -192,13 +192,13 @@ function extract_chord(user_ans){
     let bass = ""
     let type = ""
 
-    if (user_ans.includes("major") || user_ans.includes("minor") || user_ans.includes("dim")){
+    if (user_ans.includes("major") || user_ans.includes("minor") || user_ans.includes("dim") || user_ans.includes("-") || user_ans.includes("o") || user_ans.includes("O") || user_ans.includes("0")){
         note = user_ans.substring(0,1).toUpperCase()
         acc = user_ans.substring(1,2).toLowerCase()
         if (!accepted_acc.includes(acc)) acc = ""
         if (user_ans.includes("major")) type = "major"
         else if (user_ans.includes("minor")) type = "minor"
-        else if (user_ans.includes("dim")) type = "dim"
+        else if (user_ans.includes("dim") || user_ans.includes("-") || user_ans.includes("o") || user_ans.includes("O") || user_ans.includes("0")) type = "dim"
         if (user_ans.includes("/")) bass = user_ans.substring(user_ans.length-1)
     } else {
         note = user_ans.substring(0,1).toUpperCase()

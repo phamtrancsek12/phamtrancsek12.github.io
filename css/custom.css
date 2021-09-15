@@ -151,3 +151,11 @@
   height: 80%;
   overflow-y: auto;
 }
+
+.padding-custom-0{
+    padding:0px;
+}
+
+.padding-custom-minwidth{
+    min-width: 80px;
+}

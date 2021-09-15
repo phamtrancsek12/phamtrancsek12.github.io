@@ -1,0 +1,153 @@
+.border-primary-custom {
+    border: 1px solid #ec8f6a !important;
+}
+
+.border-secondary-custom {
+    border: 1px solid #8bbabb !important;
+}
+
+.border-tertiary-custom {
+    border: 1px solid #e2c275 !important;
+}
+
+.border-quarternary-custom {
+    border: 1px solid #b96b9f !important;
+}
+
+.border-dark-custom {
+    border: 1px solid #343a40 !important;
+}
+
+.border-error-custom {
+    background: #fca3ac;
+}
+
+.border-suggest-custom {
+    background: #acd0f8;
+}
+
+.block-margin{
+    margin: 20px;
+    padding: 20px;
+}
+
+.block-margin-top{
+    margin-top: 10px;
+}
+
+.text-color-custom{
+    color: #212529 !important;
+}
+
+.input-group-text-tertiary-custom {
+    color: #fff;
+    border: 1px solid #e2c275 !important;
+    background: #e2c275 !important;
+}
+
+.input-tertiary-custom {
+    border: 1px solid #e2c275 !important;
+}
+
+.font-size-custom {
+    font-size: 14px !important;
+}
+
+.icon-custom {
+    padding-left: 11px !important;
+    padding-right: 12px !important;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #343a40 !important;
+    opacity: 0.5;
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #343a40 !important;
+    opacity: 0.5;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+    color: #343a40 !important;
+    opacity: 0.5;
+ }
+
+.btn-custom{
+    cursor: pointer !important;
+}
+
+.btn-custom:hover{
+    background: #ec8f6a !important;
+}
+
+.btn-custom-grey:hover{
+    background: #ced4da !important;
+}
+
+.hidden-tooltip{
+    display: none !important;
+}
+
+.tooltip-inner{
+    background-color: #8bbabb  !important;
+}
+
+.bs-tooltip-bottom .arrow::before{
+    border-bottom-color: #8bbabb  !important;
+}
+
+.bs-tooltip-top .arrow::before{
+    border-top-color: #8bbabb  !important;
+}
+
+.padding-top-custom{
+    padding-top: 40px !important;
+}
+
+.custom-icon {
+    font-size: 20px;
+}
+
+.custom-title{
+    font-size: 25px;
+    color: #b96b9f;
+}
+
+.custom-hidden{
+    display: none !important;
+}
+
+.hint-icon-custom{
+    font-size: 25px;
+    padding: 5px;
+    color: #8bbabb;
+}
+
+.hint-icon-custom-clicked{
+    font-size: 25px;
+    padding: 5px;
+    color: #ec8f6a !important;
+}
+
+.oversize {
+    width: 80%;
+    height: auto;
+}
+
+.oversize-sheet{
+    width: 100%;
+    height: auto;
+}
+
+.custom-outside-scrollable {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.custom-inside-scrollable {
+  position: relative;
+  height: 80%;
+  overflow-y: auto;
+}

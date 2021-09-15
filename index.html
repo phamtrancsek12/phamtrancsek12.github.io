@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>[Music Theory] Practice: Chord Progression</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="css/ionicons.min.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/custom.css">
+   </head>
+   <body>
+      <div class="container-fluid">
+
+         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+           <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+             <h3> Thực Hành: Đặt Hoà Thanh </h3>
+           </a>
+         </header>
+
+         <div class="row justify-content-md-center custom-outside-scrollable" id="main-content">
+            <div class="col-md-5 border-secondary-custom rounded block-margin custom-inside-scrollable" id="music-block">
+               <div class="row justify-content-md-center custom-title">
+                   <div class="col-md-6" id="song-title"></div>
+                   <div class="col-md-5">
+                        <div class="dropdown d-block">
+                          <button class="btn mb-2 mb-md-0 btn-primary btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Chọn...
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="click_get_song(0)">Bé Bé Bằng Bông</a>
+                              <a class="dropdown-item" href="#" onclick="click_get_song(1)">Bèo Dạt Mây Trôi</a>
+                            <a class="dropdown-item" href="#" onclick="click_get_song(2)">You're my sunshine</a>
+                            <a class="dropdown-item" href="#" onclick="click_get_song(3)">Chênh Vênh</a>
+                              <a class="dropdown-item" href="#" onclick="click_get_song(4)">Silent Night</a>
+                            <a class="dropdown-item" href="#" onclick="click_get_song(5)">Lullaby</a>
+                            <a class="dropdown-item" href="#" onclick="click_get_song(6)">Donna Donna</a>
+                          </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="row justify-content-md-center" >
+                   <img id="music-sheet" src="" class="oversize-sheet" alt="Sheet" style="padding-top:30px">
+               </div>
+            </div>
+            <div class="col-md-6 border-secondary-custom rounded block-margin custom-inside-scrollable" id="practice-block">
+               <div class="row">
+                  <div class="col-md-3 btn-group mb-2 mb-md-0 btn-block">
+                     <button onclick="click_back()" type="button" class="btn  btn-outline-secondary" id="button-back" data-toggle="tooltip" data-placement="bottom" title="Back">
+                        <i class="custom-icon fas fa-step-backward"></i>
+                     </button>
+                     <button onclick="click_next()" type="button" class="btn btn-outline-secondary" id="button-next" data-toggle="tooltip" data-placement="bottom" title="Next">
+                        <i class="custom-icon fas fa-step-forward"></i>
+                     </button>
+                     <button onclick="click_restart()" type="button" class="btn btn-outline-secondary" id="button-restart" data-toggle="tooltip" data-placement="bottom" title="Restart">
+                        <i class="custom-icon fas fa-sync"></i>
+                     </button>
+                  </div>
+
+                  <div id="title-step-1" class="col-md-8 d-flex flex-wrap justify-content-center custom-title">Bước 1: Xác định giọng</div>
+                  <div id="title-step-2" class="custom-hidden col-md-8 d-flex flex-wrap justify-content-center custom-title">Bước 2: Tìm nốt thuộc giọng</div>
+                  <div id="title-step-3" class="custom-hidden col-md-8 d-flex flex-wrap justify-content-center custom-title">Bước 3: Các hợp âm của giọng </div>
+                  <div id="title-step-4" class="custom-hidden col-md-8 d-flex flex-wrap justify-content-center custom-title">Bước 4: Đặt hoà thanh</div>
+
+                  <div id="show-hint" class="col-md-1 d-flex flex-wrap justify-content-center">
+                      <a href="#"><i onclick="click_hint()" id="hint-button" class="custom-icon fas fa-question-circle hint-icon-custom" data-toggle="tooltip" data-placement="bottom" title="Hint"></i></a>
+                  </div>
+               </div>
+
+               <!-- Step 1 -->
+               <div class="row d-flex flex-wrap justify-content-center" id="step-1">
+                  <div class="d-flex flex-wrap justify-content-center col col-md-6 rounded block-margin" style="margin-top:50px;">
+                      <div class="row block-margin-top">
+                         <div class="col-md-12">
+                             <div class="input-group mb-2 mb-md-0">
+                                 <input id="scale-note-ans" type="text" class="form-control" aria-label="scale-note" data-toggle="tooltip" data-placement="bottom" title="Eg. C#, Ab, F, ...">
+                                 <input id="scale-type-ans" type="text" class="form-control" aria-label="scale-type" data-toggle="tooltip" data-placement="bottom" title="major/minor">
+                                 <div class="input-group-append">
+                                    <span onclick="submit_step1()" id="submit-step1" class="input-group-text btn-custom-grey"><i class="ion-ios-paper-plane icon-custom"></i></span>
+                                 </div>
+                             </div>
+                         </div>
+                      </div>
+                  </div>
+               </div>
+
+               <div class="custom-hidden row d-flex flex-wrap justify-content-center" id="hint-step-1">
+                  <img src="img/scale_circle.png" class="oversize" alt="Scale Circle">
+               </div>
+
+
+               <!-- Step 2 -->
+               <div class="row d-flex flex-wrap justify-content-center custom-hidden" id="step-2">
+                  <div class="d-flex flex-wrap justify-content-center col col-md-12 rounded block-margin" style="margin-top:0px;padding-top:0px;">
+                      <div class="row block-margin-top">
+                         <div class="col-md-12">
+                             <div class="input-group mb-2 mb-md-0">
+                                 <input id="scale-note-0" type="text" class="form-control" aria-label="note1" data-toggle="tooltip" data-placement="bottom" title="Eg. C#, Ab, F, ...">
+                                 <input id="scale-note-1" type="text" class="form-control" aria-label="note2" data-toggle="tooltip" data-placement="bottom" title="Eg. C#, Ab, F, ...">
+                                 <input id="scale-note-2" type="text" class="form-control" aria-label="note3" data-toggle="tooltip" data-placement="bottom" title="Eg. C#, Ab, F, ...">
+                                 <input id="scale-note-3" type="text" class="form-control" aria-label="note4" data-toggle="tooltip" data-placement="bottom" title="Eg. C#, Ab, F, ...">
+                                 <input id="scale-note-4" type="text" class="form-control" aria-label="note5" data-toggle="tooltip" data-placement="bottom" title="Eg. C#, Ab, F, ...">
+                                 <input id="scale-note-5" type="text" class="form-control" aria-label="note6" data-toggle="tooltip" data-placement="bottom" title="Eg. C#, Ab, F, ...">
+                                 <input id="scale-note-6" type="text" class="form-control" aria-label="note7" data-toggle="tooltip" data-placement="bottom" title="Eg. C#, Ab, F, ...">
+                                 <div class="input-group-append">
+                                    <span id="scale-submit-result-button" onclick="click_scale_submit_answer()" class="input-group-text btn-custom-grey"><i class="ion-ios-paper-plane icon-custom"></i></span>
+                                 </div>
+                             </div>
+                         </div>
+                      </div>
+                  </div>
+               </div>
+
+               <div class="custom-hidden row d-flex flex-wrap justify-content-center" id="hint-step-2">
+                  <img src="img/scale_pattern.png" class="oversize" alt="Scale Pattern">
+               </div>
+
+               <!-- Step 3 -->
+               <div class="row d-flex flex-wrap justify-content-center custom-hidden" id="step-3">
+                  <div class="d-flex flex-wrap justify-content-center col col-md-12 rounded block-margin" style="margin-top:0px;padding-top:0px;">
+                      <div class="row block-margin-top">
+                         <div class="col-md-12">
+                             <div class="input-group mb-2 mb-md-0">
+                                 <input id="chords-note-0" type="text" class="form-control" aria-label="note1" data-toggle="tooltip" data-placement="bottom" title="eg. C, Am, Fmajor, E#minor, Cdim, etc.">
+                                 <input id="chords-note-1" type="text" class="form-control" aria-label="note2" data-toggle="tooltip" data-placement="bottom" title="eg. C, Am, Fmajor, E#minor, Cdim, etc.">
+                                 <input id="chords-note-2" type="text" class="form-control" aria-label="note3" data-toggle="tooltip" data-placement="bottom" title="eg. C, Am, Fmajor, E#minor, Cdim, etc.">
+                                 <input id="chords-note-3" type="text" class="form-control" aria-label="note4" data-toggle="tooltip" data-placement="bottom" title="eg. C, Am, Fmajor, E#minor, Cdim, etc.">
+                                 <input id="chords-note-4" type="text" class="form-control" aria-label="note5" data-toggle="tooltip" data-placement="bottom" title="eg. C, Am, Fmajor, E#minor, Cdim, etc.">
+                                 <input id="chords-note-5" type="text" class="form-control" aria-label="note6" data-toggle="tooltip" data-placement="bottom" title="eg. C, Am, Fmajor, E#minor, Cdim, etc.">
+                                 <input id="chords-note-6" type="text" class="form-control" aria-label="note7" data-toggle="tooltip" data-placement="bottom" title="eg. C, Am, Fmajor, E#minor, Cdim, etc.">
+                                 <div class="input-group-append">
+                                    <span id="chord-submit-result-button" onclick="click_chords_submit_answer()" class="input-group-text btn-custom-grey"><i class="ion-ios-paper-plane icon-custom"></i></span>
+                                 </div>
+                             </div>
+                         </div>
+                      </div>
+                  </div>
+               </div>
+
+               <div class="custom-hidden row d-flex flex-wrap justify-content-center" id="hint-step-3">
+                  <img src="img/diatonic_chords.png" class="oversize" alt="Diatonic Chord">
+               </div>
+
+               <!-- Step 4 -->
+               <div class="row custom-hidden" id="step-4"></div>
+               <div class="custom-hidden row d-flex flex-wrap justify-content-center" id="hint-step-4">
+                  <img src="img/chord_progression.png" class="oversize" alt="Diatonic Chord">
+               </div>
+
+            </div>
+         </div>
+         </div>
+      </div>
+      <!--  SCRIPT  -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/main.js"></script>
+      <script src="https://kit.fontawesome.com/684f38a06c.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/vexflow/releases/vexflow-min.js"></script>
+      <script src="js/elements/pitch_const.js"></script>
+      <script src="js/elements/pitch_class.js"></script>
+      <script src="js/elements/pitch_function.js"></script>
+      <script src="js/elements/chord_progression.js"></script>
+      <script src="js/songs/be_be_bang_bong.js"></script>
+      <script src="js/songs/beo_dat_may_troi.js"></script>
+      <script src="js/songs/you_are_my_sunshine.js"></script>
+      <script src="js/songs/chenh_venh.js"></script>
+      <script src="js/songs/silent_night.js"></script>
+      <script src="js/songs/lullaby.js"></script>
+      <script src="js/songs/donna_donna.js"></script>
+      <script src="js/visualize/chord_progression_steps.js"></script>
+      <script src="js/action/chord_progression_steps.js"></script>
+
+   </body>
+</html>

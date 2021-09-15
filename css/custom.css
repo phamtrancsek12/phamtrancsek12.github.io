@@ -153,9 +153,9 @@
 }
 
 .padding-custom-0{
-    padding:0px;
+    padding:0px !important;
 }
 
 .padding-custom-minwidth{
-    min-width: 80px;
+    min-width: 80px !important;
 }

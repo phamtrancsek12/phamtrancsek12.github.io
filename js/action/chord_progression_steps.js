@@ -87,7 +87,7 @@ function show_answer_step_3(){
         let message = scale["chords"][i].name + ": "
                         + scale["chords"][i]["notes"][0].name + ", "
                         + scale["chords"][i]["notes"][1].name + ", "
-                        + scale["chords"][2]["notes"][0].name
+                        + scale["chords"][i]["notes"][2].name
 
         $("#chords-note-" + i).attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
     }
@@ -107,6 +107,7 @@ function remove_answer_step_2(){
 function remove_answer_step_3(){
     for (let i=0; i < scale["chords"].length; i++){
         $("#chords-note-" + i).val("").prop("readonly", false)
+        $("#chords-note-" + i).attr('title', "eg. C, Am, Fmajor, E#minor, Cdim, etc.").tooltip('dispose').tooltip('show').tooltip("hide")
     }
 }
 

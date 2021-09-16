@@ -96,24 +96,33 @@ function show_answer_step_3(){
 function remove_answer_step_1(){
     $("#scale-note-ans").val("").prop("readonly", false)
     $("#scale-type-ans").val("").prop("readonly", false)
+    $("#scale-type-ans").removeClass("border-error-custom")
+    remove_answer_step_2()
 }
 
 function remove_answer_step_2(){
     for (let i=0; i < scale["notes"].length; i++){
         $("#scale-note-" + i).val("").prop("readonly", false)
+        $("#scale-note-" + i).removeClass("border-error-custom")
     }
+    remove_answer_step_3()
 }
 
 function remove_answer_step_3(){
     for (let i=0; i < scale["chords"].length; i++){
         $("#chords-note-" + i).val("").prop("readonly", false)
         $("#chords-note-" + i).attr('title', "eg. C, Am, Fmajor, E#minor, Cdim, etc.").tooltip('dispose').tooltip('show').tooltip("hide")
+        $("#chords-note-" + i).removeClass("border-error-custom")
     }
+    remove_answer_step_4()
 }
 
 function remove_answer_step_4(){
     for (let i=0; i < song["bars"].length; i++){
         $("#answer-chord-" + i).val("").prop("readonly", false)
+        $("#chords-chord-" + i).removeClass("border-error-custom")
+        $("#chords-chord-" + i).removeClass("border-suggest-custom")
+        $("#chords-chord-" + i).removeClass("custom-readonly")
     }
 }
 
@@ -155,6 +164,8 @@ function click_back(){
         if (step == 3) remove_answer_step_3()
         $("#step-" + step).removeClass("custom-hidden")
         $("#title-step-" + step).removeClass("custom-hidden")
+    } else {
+        remove_answer_step_1()
     }
 }
 
@@ -170,6 +181,8 @@ function click_next(){
         step = step + 1
         $("#step-" + step).removeClass("custom-hidden")
         $("#title-step-" + step).removeClass("custom-hidden")
+    } else {
+        $('#done-exercise-modal').modal('toggle');
     }
 }
 

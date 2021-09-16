@@ -243,7 +243,9 @@ function submit_step1(){
     let whole_name = user_answer_note + user_answer_acc + user_answer_type
     if (whole_name == song["key_signature"][3]){
         $("#scale-note-ans").removeClass("border-error-custom")
+        $("#scale-note-ans").prop("readonly", true)
         $("#scale-type-ans").removeClass("border-error-custom")
+        $("#scale-type-ans").prop("readonly", true)
         message = "Đúng rồi \\(^_^)/ Bấm NEXT để làm tiếp nhé!"
         $("#scale-note-ans").attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
         $("#scale-type-ans").attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
@@ -274,7 +276,8 @@ function submit_step1(){
         $("#scale-note-ans").attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
     } else {
         $("#scale-note-ans").removeClass("border-error-custom")
-        message = "Eg. C#, Ab, F, ..."
+        $("#scale-note-ans").prop("readonly", true)
+        message = "Đúng rồi \\(^_^)/"
         $("#scale-note-ans").attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
     }
 
@@ -285,7 +288,8 @@ function submit_step1(){
         $("#scale-type-ans").attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
     } else {
         $("#scale-types-ans").removeClass("border-error-custom")
-        message = "major/minor"
+        $("#scale-types-ans").prop("readonly", true)
+        message = "Đúng rồi \\(^_^)/"
         $("#scale-types-ans").attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
     }
 
@@ -332,6 +336,7 @@ function click_scale_submit_answer(){
         } else {
             count_correct += 1
             $("#scale-note-" + i).removeClass("border-error-custom")
+            $("#scale-note-" + i).prop("readonly", true)
             $("#scale-note-" + i).attr('title', "Đúng rồi \\(^_^)/").tooltip('dispose').tooltip('show').tooltip("hide")
         }
     }
@@ -386,6 +391,7 @@ function click_chords_submit_answer(){
             } else {
                 count_correct += 1
                 $("#chords-note-" + i).removeClass("border-error-custom")
+                $("#chords-note-" + i).prop("readonly", true)
                 $("#chords-note-" + i).attr('title', "Đúng rồi \\(^_^)/").tooltip('dispose').tooltip('show').tooltip("hide")
             }
         }
@@ -413,6 +419,7 @@ function get_TDS(chord) {
 function click_song_chords_submit(index) {
 
     $("#answer-chord-" + index).removeClass("border-suggest-custom")
+    $("#answer-chord-" + index).removeClass("custom-readonly")
 
     let possible_chord = bar_chords[index]
     let first_note = song["bars"][index][0].name
@@ -516,5 +523,6 @@ function click_song_chords_submit(index) {
     }
 
     $("#answer-chord-" + index).removeClass("border-error-custom")
+    $("#answer-chord-" + index).addClass("custom-readonly")
     $("#answer-chord-" + index).attr('title', "Đúng rồi! Bạn thử lại trên đàn để xem đã hay chưa nhé!").tooltip('dispose').tooltip('show').tooltip("hide")
 }

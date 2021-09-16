@@ -159,3 +159,7 @@
 .padding-custom-minwidth{
     min-width: 80px !important;
 }
+
+.custom-readonly{
+    background-color: #e9ecef;
+}

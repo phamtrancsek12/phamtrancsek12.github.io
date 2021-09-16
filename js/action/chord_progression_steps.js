@@ -507,7 +507,7 @@ function click_song_chords_submit(index) {
     // Check if first note is also bass
     if (index != song["bars"].length - 1) {
         if (first_note == user_ans.bass){
-            message = "Không nên chọn nốt bass trùng với giai điệu! Chọn một hợp âm khác hoặc đảo bass để phù hợp hơn nhé ~ Trừ trường hợp dùng hợp âm V để kết đoạn ;)"
+            message = "Không nên chọn nốt bass trùng với giai điệu! Chọn một hợp âm khác hoặc đảo bass để phù hợp hơn nhé ~ Trừ trường hợp kết bài/kết đoạn ;)"
             $("#answer-chord-" + index).addClass("border-suggest-custom")
             $("#answer-chord-" + index).attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
             return

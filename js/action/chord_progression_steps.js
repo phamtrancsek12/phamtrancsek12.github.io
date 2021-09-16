@@ -83,6 +83,13 @@ function show_answer_step_2(){
 function show_answer_step_3(){
     for (let i=0; i < scale["chords"].length; i++){
         $("#chords-note-" + i).val(scale["chords"][i].name).prop("readonly", true)
+
+        let message = scale["chords"][i].name + ": "
+                        + scale["chords"][i]["notes"][0].name + ", "
+                        + scale["chords"][i]["notes"][1].name + ", "
+                        + scale["chords"][2]["notes"][0].name
+
+        $("#chords-note-" + i).attr('title', message).tooltip('dispose').tooltip('show').tooltip("hide")
     }
 }
 

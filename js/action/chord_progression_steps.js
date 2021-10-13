@@ -1,5 +1,5 @@
 var song_list = [be_be_bang_bong, beo_dat_may_troi, you_are_my_sunshine, chenh_venh, silent_night, lullaby, donna_donna]
-var song = be_be_bang_bong
+var song = chang_biet_viet_gi
 var step = 1
 var show_hint = false
 
